@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Prueba</title>
+	<script src="localstore2.min.js"></script>
+	<script type="text/javascript">
+		function guardar(){
+			localstore.set('a','The Develop');
+			localstore.set('b', ['The dogs', 'rock is wonderful', 28, true, ['javascript', 'css', 'html']]);
+			localstore.set('c', {array1:[1,'texto',{number1:5}]});
+			alert(localstore.get('b'));
+		}
+	</script>
+</head>
+<body style="background-color: aqua; text-align: center;">
+	<input type="button" value="Guardar" onclick="guardar()">
+</body>
+</html>

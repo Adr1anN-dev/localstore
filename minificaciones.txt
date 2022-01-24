@@ -1,0 +1,4 @@
+localstore.min.js --> se minifico en https://www.cleancss.com/javascript-minify/ --> 954 bytes
+localstore2.min.js --> se minifico en https://jscompress.com/ --> 663 bytes
+localstore3.min.js --> se minifico en https://refresh-sf.com/ --> 688 bytes
+localstore4.min.js --> se minifico en https://www.toptal.com/developers/javascript-minifier/ --> 680 bytes
