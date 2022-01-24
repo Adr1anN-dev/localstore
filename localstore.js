@@ -9,9 +9,17 @@ var localstore = {
     var contenedor = this.get(key), tipo = typeof contenedor;
     switch(tipo){
       case 'string': this.s.setItem(key, JSON.stringify(contenedor + val1)); break;
-      case 'object': contenedor.length != undefined ? /*is array*/ contenedor[contenedor.length] = val1 : /*is object*/ contenedor[val1] == undefined ? (contenedor[val1] = [], contenedor[val1][contenedor[val1].length] = val2) : contenedor[val1][contenedor[val1].length] = val2; this.s.setItem(key, JSON.stringify(contenedor)); break;
+      case 'object': contenedor.length != undefined ? /*is array*/ contenedor[contenedor.length] = val1 : /*is object*/ contenedor[val1] = val2; this.s.setItem(key, JSON.stringify(contenedor)); break;
     }
     return val1;
+  },
+  modify: function(key, val1, val2){
+    var contenedor = this.get(key), tipo = typeof contenedor, tipo2 = typeof val1; this.remove(key);
+    switch(tipo){
+      case 'string': this.set(key, val1); break;
+      case 'object': tipo2 == 'string' ? /*is string*/ contenedor[val1] = val2 : /*is array or object*/ val1.forEach((val,x) => { contenedor[val] = val2[x]; }); break;
+    }
+    this.set(key, contenedor);
   },
   get: function(key) {
     var value = this.s.getItem(key);

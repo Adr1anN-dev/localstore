@@ -7,6 +7,7 @@ Use, code and enjoy!
 it has 6 functions:<br>
 `set(key, value)`: sets key-value pair. JSON is supported in values<br>
 `add(key, value1, value2)`: add new values in key-value pair<br>
+`modify(key, value)`: modify new values in key-value pair<br>
 `get(key)`: returns just value for the key. returns `undefined` if no value found<br>
 `getAll()`: returns object with all key-value pairs. JSON is parsed. returns `{}` on empty store<br>
 `remove(key)`: removes key. returns `undefined`<br>
@@ -27,6 +28,10 @@ localstore.getAll(); // {"a":1,"c":"some string"}
 // Example add with initial set String - add(key, value1)
 localstore.set('a','The Develop'); // "The Develop"
 localstore.add('a',' is excelent'); // "The Develop is excelent"
+
+// Example modify with initial set String - add(key, value1)
+localstore.set('a',['The Develop','Hello']); // ['The Develop','Hello']
+localstore.modify('a',0,'The code'); // ['The code','Hello']
 
 // Example add with initial set Array - add(key, value1)
 localstore.set('b', ['The dogs', 'rock is wonderful', 28, true, ['javascript', 'css', 'html']]); // ['The dogs', 'rock is wonderful', 28, true, ['javascript', 'css', 'html']]
